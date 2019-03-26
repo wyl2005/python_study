@@ -35,12 +35,16 @@ class Perceptron(object):
         self.weights = list(map(lambda x_w: x_w[1]+ rate*delta*x_w[0],
                         zip(input_vec, self.weights)))
         self.bias += rate*delta
-
+'''
 def f(x):
     if x > 0:
         return 1
     else:
         return 0
+'''
+
+def f(x):
+    return 1 if x >0 else 0
 
 def get_training_dataset():
     input_vecs = [[1,1], [0,0],[1,0],[0,1]]
