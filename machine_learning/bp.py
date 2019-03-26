@@ -94,3 +94,52 @@ class Layer(object):
         for node in self.nodes:
             print node
 
+class Connection(object):
+    def __init__(self, upstream_node, downstream_node):
+        self.upstream_node = upstream_node
+        self.downstream_node = downstream_node
+        self.weight = random.uniform(-0.1, 0.1)
+        self.gradient = 0.0
+    def calc_gradient(self):
+        self.gradient = self.downstream_node.delta * self.upstream_node.output
+
+    def get_gradient(self):
+        return self.gradient
+
+    def update_weight(self, rate):
+        self.calc_gradient()
+        self.weight += rate * self.gradient
+
+    def __str__(self):
+        return '(%u-%u) -> (%u-%u) = %f' % ( \
+            self.upstream_node.layer_index,
+            self.upstream_node.node_index,
+            self.downstream_node.layer_index,
+            self.downstream_node.node_index,
+            self.weight)
+
+class Network(object):
+    def __init__(self, layers):
+        self.connections = Connections()
+        self.layers = []
+        layer_count = len(layers)
+        for i in range(layer_count):
+            self.layers.append(Layer(i, layers[i]))
+        for layer in range(layer_count -1):
+            connections = [Connection(upstream_node, downstream_node)
+                           for upstream_node in self.layers[layer].nodes
+                           for downstream_node in self.layers[layer+1].nodes[:-1]]
+            for conn in connections:
+                self.connections.add_connection(conn)
+                conn.downstream_node.append_upstream_connection(conn)
+                conn.upstream_node.append_downstream_connection(conn)
+
+    def train(self, labels, date_set, rate, iteration):
+        for i in range(iteration):
+            for d in range(len(date_set)):
+                self.train_one_sample(labels[d], data_set[d], rate)
+    def train_one_sample(self, label, sample, rate):
+        self.predict(sample)
+        self.calc_delta(label)
+        self.update_weight(rate)
+
