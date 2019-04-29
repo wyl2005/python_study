@@ -31,6 +31,7 @@ class myFtp:
     def DownloadFile(self, LocalFile, RemoteFile):
         file_handle = open(LocalFile, 'wb')
         #print('handle %s' % file_handle)
+        #self.ftp.retrbinary("RETR %s" % (RemoteFile), file_handler.write)#接收服务器上文件并写入本地文件
         self.ftp.retrbinary('RETR '+ RemoteFile, file_handle.write)
         file_handle.close()
         return True
@@ -66,8 +67,8 @@ if __name__ == "__main__":
     ftp = myFtp('201.234.3.1', 21)
     ftp.Login('root', '#48Va2#LY@R46JKx')
     ftp.DownloadFileTree('./laserbox_log', '/log')
+    #ftp.DownloadFile('./laserbox_log/last.gcode', '/var/last.gcode')
     #ftp.DownloadFile('./upgrade.log.1970-01-01_00:00:08', '/log/upgrade.log.1970-01-01_00:00:08')
-    #ftp.DownloadFile('./2222', '/log/2222')
     #a = ftp.checkFileDir('/log/test')
     #print(a)
     ftp.close()
