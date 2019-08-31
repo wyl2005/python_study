@@ -1,0 +1,9 @@
+begin copy upgrade files to mmcblk0p13
+copy h3_firmware:Laserbox_H3_firmware_40.02.007.00.ht0.img
+copy h3_laserservice:Laserbox_H3_laserservice_40.02.007.01.ht0_48918d4_0480650.zip
+copy gd32_service:Laserbox_gd32_service_40.01.004.06.ht0.bin
+copy gd32_service:Laserbox_gd32_service_40.01.004.08.ht0.bin
+copy stm32_service:Laserbox_stm32_service_40.02.007.03.ht0.bin
+upgrade_h3_firmware: Laserbox_H3_firmware_40.02.007.00.ht0.img
+It's in system 0 now
+reboot to system1 to upgrade Laserbox_H3_firmware_40.02.007.00.ht0.img

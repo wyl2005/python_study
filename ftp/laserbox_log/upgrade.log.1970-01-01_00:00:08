@@ -1,0 +1,4 @@
+[info ] [01-01 00:00:08] [NONE] [Thread.cpp +84] [create] [170] create thread(tid:201 name:LogServer)
+[info ] [01-01 00:00:08] [NONE] [Thread.cpp +124] [start] [170] start thread(tid:201 name:LogServer)
+[info ] [01-01 00:00:08] [NONE] [Thread.cpp +84] [create] [170] create thread(tid:203 name:UpgradeServer)
+[info ] [01-01 00:00:08] [NONE] [Thread.cpp +124] [start] [170] start thread(tid:203 name:UpgradeServer)

@@ -1,0 +1,31 @@
+Find upgrade flag, begin upgrade in system:0
+upgrade_h3_laserservice:/tmp/mmcblk0p13/Laserbox_H3_laserservice_40.02.007.01.ht0_48918d4_0480650.zip
+Archive:  /tmp/laserservice_pac.zip
+  inflating: laserservice
+  inflating: laserservice_D
+  inflating: libautofocus_api.so
+  inflating: libautofocus_api_D.so
+upgrade_stm32_service:/tmp/mmcblk0p13/Laserbox_stm32_service_40.02.007.03.ht0.bin
+sleep 11s
+HTTP/1.1 200 OK
+Connection: close
+Server: MJPG-Streamer/0.2
+Cache-Control: no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0
+Pragma: no-cache
+Expires: Mon, 3 Jan 2000 12:34:56 GMT
+Content-type: text/plain
+Content-Length: 15
+
+
+upgrade_gd32_service:/tmp/mmcblk0p13/Laserbox_gd32_service_40.01.004.08.ht0.bin
+sleep 11s
+HTTP/1.1 200 OK
+Connection: close
+Server: MJPG-Streamer/0.2
+Cache-Control: no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0
+Pragma: no-cache
+Expires: Mon, 3 Jan 2000 12:34:56 GMT
+Content-type: text/plain
+Content-Length: 0
+
+
